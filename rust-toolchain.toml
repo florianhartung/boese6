@@ -1,0 +1,2 @@
+[toolchain]
+targets = ["i686-pc-windows-msvc"] # 32-bit is important for loading DLLs

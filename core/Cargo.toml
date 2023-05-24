@@ -6,3 +6,12 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = "1.0.71"
+libloading = "0.8.0"
+fastrand = "1.9.0"
+rayon = "1.7.0"
+itertools = "0.10.5"
+self_cell = "0.10.2"
+
+[dev-dependencies]
+num-format = "0.4.4"
