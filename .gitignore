@@ -1,0 +1,6 @@
+/target
+
+# Ignore Cargo.lock files for libraries
+core/Cargo.lock
+compiler/nasm-codegen/Cargo.lock
+compiler/Cargo.lock
