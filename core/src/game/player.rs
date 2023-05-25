@@ -1,5 +1,6 @@
 use crate::game::ability_state::AbilityState;
 use crate::game::player_decision::DecideFn;
+use crate::game::rng::Rng;
 use crate::game::round_logic_handler::RoundLogicHandler;
 
 pub struct Player<'a> {
@@ -19,11 +20,12 @@ impl<'a> Player<'a> {
         }
     }
 
-    pub fn play_round(&mut self) {
+    pub fn play_round(&mut self, rng: &mut Rng) {
         let mut round_logic_handler = RoundLogicHandler::new(
             &mut self.remaining_abilities,
             self.total_score,
             &self.decide,
+            rng,
         );
 
         while round_logic_handler.play_throw() {}

@@ -14,4 +14,12 @@ itertools = "0.10.5"
 self_cell = "0.10.2"
 
 [dev-dependencies]
+fastrand = "1.9.0"
+rand = "0.8.5"
 num-format = "0.4.4"
+criterion = {version="0.5.0", features=["html_reports"]}
+lazy_static = "1.4.0"
+
+[[bench]]
+name = "rng_benchmark"
+harness = false

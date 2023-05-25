@@ -9,15 +9,11 @@ use crate::strategies::{Player1, Player2};
 
 mod strategies;
 
-const NUM_GAMES: usize = 10_000_000;
+const NUM_GAMES: usize = 1_000_000;
 
 fn main() {
     let players = vec![
         &(Player1::decide as DecideFn),
-        &(Player1::decide as DecideFn),
-        &(Player1::decide as DecideFn),
-        &(Player2::decide as DecideFn),
-        &(Player2::decide as DecideFn),
         &(Player2::decide as DecideFn),
     ];
 

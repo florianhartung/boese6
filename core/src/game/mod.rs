@@ -1,6 +1,7 @@
 use crate::game::player::Player;
 use crate::game::player_decision::DecideFn;
 use crate::game::result::GameResults;
+use crate::game::rng::Rng;
 
 mod ability_state;
 mod player;
@@ -30,10 +31,11 @@ impl<'a> Game<'a> {
 
     /// Plays a game and returns a list of players ids and their respective scores
     pub fn play(mut self) -> GameResults {
+        let mut rng = Rng::new();
         let mut finished = false;
         while !finished {
             self.players.iter_mut().for_each(|p| {
-                p.play_round();
+                p.play_round(&mut rng);
                 if p.total_score >= self.winning_score {
                     finished = true;
                 }

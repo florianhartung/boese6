@@ -1,6 +1,6 @@
 use crate::game::ability_state::AbilityState;
 use crate::game::player_decision::{DecideFn, Decision};
-use crate::game::rng::throw_dice;
+use crate::game::rng::Rng;
 
 pub struct RoundLogicHandler<'a> {
     remaining_abilities: &'a mut AbilityState,
@@ -10,6 +10,7 @@ pub struct RoundLogicHandler<'a> {
     num_throws: i32,
     round_score: i32,
     last_score_if_h: Option<i32>,
+    rng: &'a mut Rng,
 }
 
 impl<'a> RoundLogicHandler<'a> {
@@ -17,6 +18,7 @@ impl<'a> RoundLogicHandler<'a> {
         remaining_abilities: &'a mut AbilityState,
         total_score: i32,
         decide_fn: &'a DecideFn,
+        rng: &'a mut Rng,
     ) -> Self {
         Self {
             remaining_abilities,
@@ -25,14 +27,15 @@ impl<'a> RoundLogicHandler<'a> {
             last_score_if_h: None,
             total_score,
             decide_fn,
+            rng,
         }
     }
 
     pub fn play_throw(&mut self) -> bool {
         self.num_throws += 1;
 
-        let w1 = throw_dice();
-        let w2 = throw_dice();
+        let w1 = self.rng.throw_dice() as i32;
+        let w2 = self.rng.throw_dice() as i32;
 
         let is_b6 = w1 == 6 || w2 == 6 || w1 + w2 == 6;
 
