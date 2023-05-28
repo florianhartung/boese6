@@ -39,6 +39,10 @@ version = "0.1.0"
 [[package]]
 name = "b6-compiler"
 version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "nasm-codegen",
+]
 
 [[package]]
 name = "b6-core"
@@ -391,6 +395,9 @@ dependencies = [
 [[package]]
 name = "nasm-codegen"
 version = "0.1.0"
+dependencies = [
+ "itertools",
+]
 
 [[package]]
 name = "num-format"
