@@ -1,0 +1,22 @@
+//const int anzw = 3
+
+function main() {
+	end
+	//bool istB6 = w1 == 6 || w2 == 6 || (w1 + w2) == 6
+
+	//if w1 == 6 || w2 == 6 {
+	//	tryuse w
+	//}
+
+	//if istB6 {
+	//	tryuse b
+	//}
+
+	//tryuse h
+
+	//if istB6 {
+	//	end
+	//}
+
+	//continueif rolls <= anzw
+}
